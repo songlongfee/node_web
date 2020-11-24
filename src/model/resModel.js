@@ -1,6 +1,6 @@
 class BaseModel {
-  constrcutor(data, message) {
-    if(typeof data == 'string') {
+  constructor(data, message) {
+    if(typeof data === 'string') {
       this.message = data
       data = null
       message = null
@@ -15,7 +15,7 @@ class BaseModel {
 }
 
 class SuccessModel extends BaseModel {
-  constrcutor(data, message) {
+  constructor(data, message) {
     super(data, message)
     this.errno = 0
   }
@@ -26,4 +26,9 @@ class ErrorModel extends BaseModel {
     super(data, message)
     this.errno = -1
   }
+}
+
+module.exports = {
+  SuccessModel,
+  ErrorModel
 }
